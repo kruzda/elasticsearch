@@ -2,6 +2,7 @@ default[:nginx][:dir]     = "/etc/nginx"
 default[:nginx][:log_dir] = "/var/log/nginx"
 default[:nginx][:binary]  = "/usr/sbin/nginx"
 default[:nginx][:root]    = "/var/www/nginx"
+default[:nginx][:passwords_file]	= "#{node[:nginx][:dir]}/es_passwords"
 
 default[:nginx][:user]    = case node[:platform]
   when 'debian', 'ubuntu' then 'www-data'

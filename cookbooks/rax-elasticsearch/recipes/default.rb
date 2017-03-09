@@ -7,10 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node.set[:java][:install_flavor] = 'openjdk'
-node.set[:java][:jdk_version] = 7
+node.set[:java][:jdk_version] = 8
 
 include_recipe 'java'
+
 
 # find the first ipv4 address of the cloud network interface
 cn_interface_ipv4 = node[:network][:interfaces][:eth2][:addresses].find \
@@ -20,8 +20,7 @@ Chef::Log.info("print interface ip is #{cn_interface_ipv4}")
 
 node.set[:elasticsearch][:custom_config] = {
   'network.host' => cn_interface_ipv4,
-  'discovery.zen.ping.unicast.hosts' => '192.168.134.1',
-  'discovery.zen.ping.multicast.address' => cn_interface_ipv4
+  'discovery.zen.ping.unicast.hosts' => '192.168.134.1'
   }
 
 include_recipe 'firewall::default'

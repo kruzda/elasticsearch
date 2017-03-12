@@ -35,7 +35,6 @@ parameters:
     default: 4 GB General Purpose v1
     constraints:
     - allowed_values:
-        - 512MB Standard Instance
         - 1GB Standard Instance
         - 2GB Standard Instance
         - 4GB Standard Instance
